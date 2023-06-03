@@ -5,6 +5,7 @@ import demo.com.config.TestBase;
 import demo.com.data.TestData;
 import demo.com.pages.RegistrationPage;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 @DisplayName("Заполнение формы и проверка результатов")
@@ -15,6 +16,7 @@ public class FillRegistrationFormWithFakerTests extends TestBase {
 
     @Description("Демо проект")
     @DisplayName("Успешное заполнение формы регистрации")
+    @Tag("smoke")
     @Test
     void fillFormTest() {
         registrationPage
