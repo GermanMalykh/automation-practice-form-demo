@@ -23,10 +23,10 @@ public class TestBase {
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
 
-        Configuration.remote =
-                ConfigData.CONFIG_LOGIN_REMOTE + ":"
-                        + ConfigData.CONFIG_PASSWORD_REMOTE + "@"
-                        + ConfigData.CONFIG_REMOTE_URL;
+        Configuration.remote = "https://"
+                + ConfigData.CONFIG_LOGIN_REMOTE + ":"
+                + ConfigData.CONFIG_PASSWORD_REMOTE + "@"
+                + ConfigData.CONFIG_REMOTE_URL;
 
         capabilities.setCapability("selenoid:options", Map.<String, Object>of(
                 "enableVNC", true,
