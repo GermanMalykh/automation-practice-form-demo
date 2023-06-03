@@ -4,16 +4,20 @@ import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import demo.com.data.ConfigData;
 import demo.com.helpers.Attach;
+import io.qameta.allure.Description;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.util.Map;
 
 public class TestBase {
 
+    @Description("Проверка отображения 1")
+    @DisplayName("Настраиваем окружение перед запуском тестов")
     @BeforeAll
     static void beforeAll() {
         Configuration.baseUrl = "https://demoqa.com";
@@ -39,11 +43,15 @@ public class TestBase {
         Configuration.browserCapabilities = capabilities;
     }
 
+    @Description("Проверка отображения 2")
+    @DisplayName("Добавляем \"Allure Listener\" для отображение деталей теста в отчёте")
     @BeforeEach
     void beforeEach() {
         SelenideLogger.addListener("allure", new AllureSelenide());
     }
 
+    @Description("Проверка отображения 3")
+    @DisplayName("Добавляем вложения")
     @AfterEach
     void addAttachments() {
         Attach.pageSource();
