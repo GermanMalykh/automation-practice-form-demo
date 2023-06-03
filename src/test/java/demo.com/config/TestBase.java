@@ -18,15 +18,24 @@ public class TestBase {
     static void beforeAll() {
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.pageLoadTimeout = 60000;
-        Configuration.browser = "chrome";
-        Configuration.browserSize = "1920x1080";
-        Configuration.browserVersion = "100.0";
-        Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
+        Configuration.browser = ConfigData.CONFIG_BROWSER_NAME;
+        Configuration.browserSize = ConfigData.CONFIG_BROWSER_SIZE;
+
         DesiredCapabilities capabilities = new DesiredCapabilities();
+
+        Configuration.remote = "https://"
+                + ConfigData.CONFIG_LOGIN_REMOTE + ":"
+                + ConfigData.CONFIG_PASSWORD_REMOTE + "@"
+                + ConfigData.CONFIG_REMOTE_URL;
+
         capabilities.setCapability("selenoid:options", Map.<String, Object>of(
                 "enableVNC", true,
                 "enableVideo", true
         ));
+
+        if (ConfigData.CONFIG_BROWSER_VERSION != null) {
+            Configuration.browserVersion = ConfigData.CONFIG_BROWSER_VERSION;
+        }
         Configuration.browserCapabilities = capabilities;
     }
 
@@ -40,10 +49,6 @@ public class TestBase {
         Attach.pageSource();
         Attach.screenshotAs("Last screenshot");
         Attach.browserConsoleLogs();
-
-//        if (ConfigData.CONFIG_REMOTE == null || ConfigData.CONFIG_REMOTE.equals("")) {
-//        } else {
-            Attach.addVideo();
-//        }
+        Attach.addVideo();
     }
 }

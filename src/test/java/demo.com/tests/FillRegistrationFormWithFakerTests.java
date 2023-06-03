@@ -4,9 +4,12 @@ import io.qameta.allure.Description;
 import demo.com.config.TestBase;
 import demo.com.data.TestData;
 import demo.com.pages.RegistrationPage;
+import io.qameta.allure.Severity;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+
+import static io.qameta.allure.SeverityLevel.CRITICAL;
 
 @DisplayName("Заполнение формы и проверка результатов")
 public class FillRegistrationFormWithFakerTests extends TestBase {
@@ -14,9 +17,10 @@ public class FillRegistrationFormWithFakerTests extends TestBase {
     RegistrationPage registrationPage = new RegistrationPage();
     TestData testData = new TestData();
 
+    @Tag("smoke")
+    @Severity(CRITICAL)
     @Description("Демо проект")
     @DisplayName("Успешное заполнение формы регистрации")
-    @Tag("smoke")
     @Test
     void fillFormTest() {
         registrationPage

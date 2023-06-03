@@ -11,6 +11,7 @@ import java.net.URL;
 import java.nio.charset.StandardCharsets;
 
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
+import static demo.com.data.ConfigData.CONFIG_REMOTE_URL_VIDEO;
 import static org.openqa.selenium.logging.LogType.BROWSER;
 
 public class Attach {
@@ -45,7 +46,7 @@ public class Attach {
     }
 
     public static URL getVideoUrl() {
-        String videoUrl = "https://selenoid.autotests.cloud/video/" + getSessionId() + ".mp4";
+        String videoUrl = CONFIG_REMOTE_URL_VIDEO + getSessionId() + ".mp4";
 
         try {
             return new URL(videoUrl);
