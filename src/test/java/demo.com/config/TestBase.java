@@ -1,5 +1,6 @@
 package demo.com.config;
 
+import com.codeborne.selenide.Command;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.selenide.AllureSelenide;
@@ -11,6 +12,7 @@ public class TestBase {
     @BeforeAll
     static void beforeAll() {
         Configuration.browserSize = "1920x1080";
+        Configuration.browser = "chrome";
         Configuration.pageLoadTimeout = 60000;
     }
 
