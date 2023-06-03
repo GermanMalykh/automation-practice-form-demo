@@ -35,15 +35,15 @@ public class TestBase {
         SelenideLogger.addListener("allure", new AllureSelenide());
     }
 
-//    @AfterEach
-//    void addAttachments() {
-//        Attach.pageSource();
-//        Attach.screenshotAs("Last screenshot");
-//        Attach.browserConsoleLogs();
-//
-////        if (ConfigData.CONFIG_REMOTE == null || ConfigData.CONFIG_REMOTE.equals("")) {
-////        } else {
-//            Attach.addVideo();
-////        }
-//    }
+    @AfterEach
+    void addAttachments() {
+        Attach.pageSource();
+        Attach.screenshotAs("Last screenshot");
+        Attach.browserConsoleLogs();
+
+//        if (ConfigData.CONFIG_REMOTE == null || ConfigData.CONFIG_REMOTE.equals("")) {
+//        } else {
+            Attach.addVideo();
+//        }
+    }
 }
