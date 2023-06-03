@@ -18,8 +18,8 @@ public class TestBase {
     static void beforeAll() {
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.pageLoadTimeout = 60000;
-        Configuration.browser = ConfigData.CONFIG_BROWSER_NAME;
-        Configuration.browserSize = ConfigData.CONFIG_BROWSER_SIZE;
+        Configuration.browser = ConfigData.browserName;
+        Configuration.browserSize = ConfigData.browserSize;
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
 
@@ -33,8 +33,8 @@ public class TestBase {
                 "enableVideo", true
         ));
 
-        if (ConfigData.CONFIG_BROWSER_VERSION != null) {
-            Configuration.browserVersion = ConfigData.CONFIG_BROWSER_VERSION;
+        if (ConfigData.browserVersion != null) {
+            Configuration.browserVersion = ConfigData.browserVersion;
         }
         Configuration.browserCapabilities = capabilities;
     }
