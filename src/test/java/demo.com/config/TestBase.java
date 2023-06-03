@@ -10,6 +10,8 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
+import java.util.Map;
+
 public class TestBase {
 
     @BeforeAll
@@ -20,25 +22,12 @@ public class TestBase {
         Configuration.browserSize = "1920x1080";
         Configuration.browserVersion = "100.0";
         Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
-
         DesiredCapabilities capabilities = new DesiredCapabilities();
-
-//        if (ConfigData.CONFIG_REMOTE == null || ConfigData.CONFIG_REMOTE.equals("")) {
-//        } else {
-//            Configuration.remote = "https://"
-//                    + ConfigData.CONFIG_LOGIN_REMOTE + ":"
-//                    + ConfigData.CONFIG_PASSWORD_REMOTE + "@"
-//                    + ConfigData.CONFIG_REMOTE;
-
-            capabilities.setCapability("enableVNC", true);
-            capabilities.setCapability("enableVideo", true);
-//        }
-
+        capabilities.setCapability("selenoid:options", Map.<String, Object>of(
+                "enableVNC", true,
+                "enableVideo", true
+        ));
         Configuration.browserCapabilities = capabilities;
-
-//        if (ConfigData.CONFIG_BROWSER_VERSION != null) {
-//            Configuration.browserVersion = ConfigData.CONFIG_BROWSER_VERSION;
-//        }
     }
 
     @BeforeEach
