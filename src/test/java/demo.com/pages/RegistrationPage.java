@@ -97,7 +97,7 @@ public class RegistrationPage {
         return this;
     }
 
-    @Step("Указываем дату рождения: {dayNumber}.{month}.{year}")
+    @Step("Указываем дату рождения: {dayNumber} {month}, {year}")
     public RegistrationPage selectDateOfBirth(String month, String year, String dayNumber) {
         selectDateOfBirthInput();
         selectMonth(month);
