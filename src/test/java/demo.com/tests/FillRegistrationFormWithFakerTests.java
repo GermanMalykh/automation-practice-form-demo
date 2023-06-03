@@ -19,6 +19,7 @@ public class FillRegistrationFormWithFakerTests extends TestBase {
     void fillFormTest() {
         registrationPage
                 .openPracticeFormPage()
+                .removeGarbageElements()
                 .setFirstName(testData.FIRST_NAME)
                 .setLastName(testData.LAST_NAME)
                 .setEmail(testData.EMAIL)

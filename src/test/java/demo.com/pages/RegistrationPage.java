@@ -37,6 +37,13 @@ public class RegistrationPage {
             DAY = $$(".react-datepicker__day"),
             TABLE_VALUE = $$("tr td");
 
+    public RegistrationPage removeGarbageElements() {
+        executeJavaScript("$('footer').remove()");
+        executeJavaScript("$('#fixedban').remove()");
+        executeJavaScript("$('#RightSide_Advertisement').remove()");
+        return this;
+    }
+
     @Step("Переходим к форме регистрации")
     public RegistrationPage openPracticeFormPage() {
         open(URL);
