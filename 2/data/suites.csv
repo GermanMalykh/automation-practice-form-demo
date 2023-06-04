@@ -1,0 +1,2 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Sun Jun 04 20:21:34 GMT 2023","Sun Jun 04 20:22:30 GMT 2023","55774","","Заполнение формы и проверка результатов","","demo.com.tests.FillRegistrationFormWithFakerTests","fillFormTest","Успешное заполнение формы регистрации","Демо проект"
