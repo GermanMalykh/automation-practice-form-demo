@@ -11,17 +11,21 @@ def selenideVersion = '6.15.0'
 def slf4jVersion = '2.0.7'
 def javaFakerVersion = '1.0.2'
 def allureSelenideVersion = '2.19.0'
+def ownerVersion = '1.0.12'
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    testImplementation "org.junit.jupiter:junit-jupiter:${junit5Version}"
-    testImplementation "com.codeborne:selenide:${selenideVersion}"
-    testImplementation "org.slf4j:slf4j-simple:${slf4jVersion}"
-    implementation "com.github.javafaker:javafaker:${javaFakerVersion}"
-    implementation "io.qameta.allure:allure-selenide:${allureSelenideVersion}"
+    testImplementation(
+            "org.junit.jupiter:junit-jupiter:${junit5Version}",
+            "com.codeborne:selenide:${selenideVersion}",
+            "org.slf4j:slf4j-simple:${slf4jVersion}",
+            "com.github.javafaker:javafaker:${javaFakerVersion}",
+            "io.qameta.allure:allure-selenide:${allureSelenideVersion}",
+            "org.aeonbits.owner:owner:${ownerVersion}"
+    )
 }
 
 allure {
